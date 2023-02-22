@@ -11,7 +11,7 @@ public class StreamerModel : MonoBehaviour
 #pragma warning disable 0649
     [SerializeField] private RenderStreaming renderStreaming;
     [SerializeField] private SingleConnection singleConnection;
-    [SerializeField] private SingleConnection singleConnectionDial;
+    //[SerializeField] private SingleConnection singleConnectionDial;
     [SerializeField] private VideoStreamSender videoStreamSender;
     [SerializeField] private VideoStreamReceiver receiveVideoViewer;
     [SerializeField] private AudioStreamReceiver receiveAudioViewer;
@@ -65,10 +65,8 @@ public class StreamerModel : MonoBehaviour
         inputSender.OnStartedChannel += OnStartedChannel;
 
         inputReceiverData.OnStartedChannel += id => { Debug.Log("START InputReceiverData " + id); };
-
-        //inputReceiverData.OnStoppedChannel += id => { Debug.Log("STOP  InputReceiverData " + id); };
         
-        StartListening(localId);
+        //StartListening(localId);
     }
     
     public void SetConnectionId(string id) {
@@ -88,25 +86,25 @@ public class StreamerModel : MonoBehaviour
         _localVideoImage = localVideoImage;
     }
 
-    private async void  StartListening(string id) {
-        await Task.Delay(TimeSpan.FromSeconds(timeOutConnection));
-          Debug.Log("START LISTENER");
-        singleConnectionDial.CreateConnection(id);
-       
-        inputReceiverData.OnMessageEvent += OnMessage;
-        
-        CallUpEvent += () => { StartDialing(remoteId); };
-        HangUpEvent += () => { StopDialing(localId); };
-    }  
+    // private async void  StartListening(string id) {
+    //     await Task.Delay(TimeSpan.FromSeconds(timeOutConnection));
+    //       Debug.Log("START LISTENER");
+    //     singleConnectionDial.CreateConnection(id);
+    //    
+    //     inputReceiverData.OnMessageEvent += OnMessage;
+    //     
+    //     CallUpEvent += () => { StartDialing(remoteId); };
+    //     HangUpEvent += () => { StopDialing(localId); };
+    // }  
     
-    private  void  StopListening(string id) {
-        Debug.Log("STOP LISTENER");
-        singleConnectionDial.DeleteConnection(id);
-        inputReceiverData.OnMessageEvent -= OnMessage;
-        
-        CallUpEvent = null;
-        HangUpEvent = null;
-    }  
+    // private  void  StopListening(string id) {
+    //     Debug.Log("STOP LISTENER");
+    //     singleConnectionDial.DeleteConnection(id);
+    //     inputReceiverData.OnMessageEvent -= OnMessage;
+    //     
+    //     CallUpEvent = null;
+    //     HangUpEvent = null;
+    // }  
     
     private void OnMessage(byte[] bytes) {
         string message = System.Text.Encoding.UTF8.GetString(bytes);
@@ -125,32 +123,32 @@ public class StreamerModel : MonoBehaviour
         }
     }
 
-    private void StartConnection(string id) {
-        StopDialing(localId);
-        CallUpEvent = null;
-        HangUpEvent = null;
-        HangUpEvent += () => {
-            StopRemoteConnection(id);
-        };
-        SetConnectionId(id);
-        SetConnectionIdEvent?.Invoke(id);
-        RemoteConnection(id);
-    }
+    // private void StartConnection(string id) {
+    //     StopDialing(localId);
+    //     CallUpEvent = null;
+    //     HangUpEvent = null;
+    //     HangUpEvent += () => {
+    //         StopRemoteConnection(id);
+    //     };
+    //     SetConnectionId(id);
+    //     SetConnectionIdEvent?.Invoke(id);
+    //     RemoteConnection(id);
+    // }
 
-    private void StartDialing(string id) {
-        StopListening(localId);
-        StartListening(id);
-        inputSenderData.OnStartedChannel += id => {
-            Debug.Log("Start InputSenderData " + id);
-            ConnectionRequest();
-        };
-    }
+    // private void StartDialing(string id) {
+    //     StopListening(localId);
+    //     StartListening(id);
+    //     inputSenderData.OnStartedChannel += id => {
+    //         Debug.Log("Start InputSenderData " + id);
+    //         ConnectionRequest();
+    //     };
+    // }
 
-    private void StopDialing(string id) {
-        StopListening(remoteId);
-        StartListening(id);
-        inputSenderData.OnStartedChannel = null;
-    }
+    // private void StopDialing(string id) {
+    //     StopListening(remoteId);
+    //     StartListening(id);
+    //     inputSenderData.OnStartedChannel = null;
+    // }
 
 
     private void RemoteConnection(string id) {

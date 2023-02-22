@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8958509712471974143}
   - component: {fileID: 8958509712471974023}
   - component: {fileID: 8958509712471974022}
-  - component: {fileID: 4468035450180334209}
   - component: {fileID: 8958509712471974136}
   - component: {fileID: 8958509712471974137}
   - component: {fileID: 8958509712471974139}
@@ -66,7 +65,7 @@ MonoBehaviour:
   interval: 5
   handlers:
   - {fileID: 8958509712471974022}
-  - {fileID: 4468035450180334209}
+  - {fileID: 0}
   runOnAwake: 0
 --- !u!114 &8958509712471974022
 MonoBehaviour:
@@ -86,19 +85,6 @@ MonoBehaviour:
   - {fileID: 8958509712471974139}
   - {fileID: 8958509712471974138}
   - {fileID: 3254648318288523857}
---- !u!114 &4468035450180334209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8958509712471974129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ae253ffca93b1b44a471a07cde60141, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  streams:
   - {fileID: 8291741469774394495}
   - {fileID: 6711260966742075269}
 --- !u!114 &8958509712471974136
@@ -313,7 +299,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderStreaming: {fileID: 8958509712471974023}
   singleConnection: {fileID: 8958509712471974022}
-  singleConnectionDial: {fileID: 4468035450180334209}
   videoStreamSender: {fileID: 8958509712471974136}
   receiveVideoViewer: {fileID: 8958509712471974137}
   receiveAudioViewer: {fileID: 8958509712471974139}
