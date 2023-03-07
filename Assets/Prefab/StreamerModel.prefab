@@ -15,11 +15,14 @@ GameObject:
   - component: {fileID: 8958509712471974137}
   - component: {fileID: 8958509712471974139}
   - component: {fileID: 8958509712471974138}
+  - component: {fileID: 942026810098321343}
   - component: {fileID: 3254648318288523857}
   - component: {fileID: 3254192184068737614}
   - component: {fileID: 6205811794769944703}
-  - component: {fileID: 8291741469774394495}
-  - component: {fileID: 6711260966742075269}
+  - component: {fileID: 5917215264403499696}
+  - component: {fileID: 7221164427402479961}
+  - component: {fileID: 1363219470407421921}
+  - component: {fileID: 2223928977221777924}
   m_Layer: 0
   m_Name: StreamerModel
   m_TagString: Untagged
@@ -65,7 +68,7 @@ MonoBehaviour:
   interval: 5
   handlers:
   - {fileID: 8958509712471974022}
-  - {fileID: 0}
+  - {fileID: 7221164427402479961}
   runOnAwake: 0
 --- !u!114 &8958509712471974022
 MonoBehaviour:
@@ -84,9 +87,8 @@ MonoBehaviour:
   - {fileID: 8958509712471974136}
   - {fileID: 8958509712471974139}
   - {fileID: 8958509712471974138}
+  - {fileID: 942026810098321343}
   - {fileID: 3254648318288523857}
-  - {fileID: 8291741469774394495}
-  - {fileID: 6711260966742075269}
 --- !u!114 &8958509712471974136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +177,23 @@ MonoBehaviour:
   m_Bitrate:
     min: 100
     max: 200
+--- !u!114 &942026810098321343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8958509712471974129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: decb088abd7ec9747b6e9a1011c046b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  local: 0
+  label: 
+  m_Actions: {fileID: 0}
+  m_ActionEvents: []
+  m_DefaultActionMap: 
 --- !u!114 &3254648318288523857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,18 +319,13 @@ MonoBehaviour:
   renderStreaming: {fileID: 8958509712471974023}
   singleConnection: {fileID: 8958509712471974022}
   videoStreamSender: {fileID: 8958509712471974136}
-  receiveVideoViewer: {fileID: 8958509712471974137}
-  receiveAudioViewer: {fileID: 8958509712471974139}
+  videoStreamReceiver: {fileID: 8958509712471974137}
+  audioStreamReceiver: {fileID: 8958509712471974139}
   audioStreamSender: {fileID: 8958509712471974138}
   receiveAudioSource: {fileID: 3254192184068737614}
   inputSender: {fileID: 3254648318288523857}
-  timeOutConnection: 2
-  timerMessage: 1
-  inputReceiverData: {fileID: 8291741469774394495}
-  inputSenderData: {fileID: 6711260966742075269}
-  localId: 11
-  remoteId: 0000
---- !u!114 &8291741469774394495
+  connectionId: 
+--- !u!114 &5917215264403499696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -320,12 +334,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8958509712471974129}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dae25c2a8de96d45a7fbbd7d2bd2e32, type: 3}
+  m_Script: {fileID: 11500000, guid: f5de7d661275d034da8faa96edf03b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  local: 0
-  label: 
---- !u!114 &6711260966742075269
+  renderStreamMain: {fileID: 6205811794769944703}
+  connection: {fileID: 7221164427402479961}
+  inputSenderData: {fileID: 1363219470407421921}
+  inputReceiverData: {fileID: 2223928977221777924}
+  localId: 
+  remoteId: 
+  textOutMessage: 
+  tempRemoteId: 
+  isStartSender: 0
+--- !u!114 &7221164427402479961
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -334,8 +355,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 8958509712471974129}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20075e65b98bea04dbaba127f42361b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ae253ffca93b1b44a471a07cde60141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  streams:
+  - {fileID: 1363219470407421921}
+  - {fileID: 2223928977221777924}
+--- !u!114 &1363219470407421921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8958509712471974129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f405c5284e2b7a741a7905141af2d364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   local: 1
+  label: 
+--- !u!114 &2223928977221777924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8958509712471974129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294b7e3eb908fe048902e04bba99d10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  local: 0
   label: 

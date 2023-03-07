@@ -7,6 +7,11 @@ public class Streamer : ViewOperator<StreamerView>
 {
   [SerializeField] private StreamerModel prefabStreamerModel;
   private StreamerModel _streamerModel;
+  
+  public HandlerMessageModel GetHandlerMessageModel() {
+      HandlerMessageModel handlerMessageModel = _streamerModel.GetComponent<HandlerMessageModel>();
+      return handlerMessageModel;
+  }
 
   public void Initialize() {
       base.CreateView();
@@ -14,7 +19,7 @@ public class Streamer : ViewOperator<StreamerView>
       _streamerModel.SetRemoteVideoImage(view.GetRemoteVideoImage());
       _streamerModel.SetLocalVideoImage(view.GetLocalVideoImage());
       view.Open();
-      view.SetTextLocalID(_streamerModel.GetLocalID());
+      //view.SetTextLocalID(_streamerModel.GetLocalID());
       SubscribeEvent();
   }
   
@@ -29,7 +34,7 @@ public class Streamer : ViewOperator<StreamerView>
   private void SubscribeEvent() {
        view.CallUpEvent += CallUp;
        view.HangUpEvent += HangUp;
-       view.EndEditEvent += _streamerModel.SetConnectionId;
+       view.EndEditEvent += _streamerModel.SetConnectId;
       _streamerModel.OnUpdateReceiveTextureEvent += texture => view.remoteVideoTexture = texture;
       _streamerModel.OnUpdateLocalTextureEvent += texture => view.localVideoTexture = texture;
       _streamerModel.OnStartInputReceiverEvent += view.StartInputReceiver;
@@ -41,7 +46,7 @@ public class Streamer : ViewOperator<StreamerView>
   public void Disable() {
       view.CallUpEvent -= CallUp;
       view.HangUpEvent -= HangUp;
-      view.EndEditEvent -= _streamerModel.SetConnectionId;
+      view.EndEditEvent -= _streamerModel.SetConnectId;
       _streamerModel.OnStartInputReceiverEvent -= view.StartInputReceiver;
       _streamerModel.OnStoppedInputReceiverEvent -= view.StoppedInputReceiver;
       _streamerModel.OnUpdateMessageEvent -= view.SetNotice;

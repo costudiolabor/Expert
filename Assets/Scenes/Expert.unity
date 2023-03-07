@@ -231,7 +231,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528948622}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 984d6e5d273e59849a914c06b58e00ff, type: 3}
   m_Name: 
@@ -434,6 +434,9 @@ MonoBehaviour:
     prefab: {fileID: 6945765535292089147, guid: 37f28102cc422c34a9df8f032ff100db, type: 3}
     viewParent: {fileID: 528948626}
     prefabStreamerModel: {fileID: 6205811794769944703, guid: 19856e169c243a740b54b039fd1fe3f0, type: 3}
+  handlerMessage:
+    prefab: {fileID: 2649162922804678366, guid: 604b63c753466894ca190e6f67765ac8, type: 3}
+    viewParent: {fileID: 528948626}
 --- !u!4 &1334752807
 Transform:
   m_ObjectHideFlags: 0

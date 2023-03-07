@@ -50,7 +50,7 @@ namespace Samples.Unity_Render_Streaming._3._1._0_exp._4.Example.Bidirectional
         
 #pragma warning restore 0649
 
-        private string connectionId;
+        [SerializeField] private string connectionId;
         private RenderStreamingSettings settings;
 
         void Awake()
@@ -143,7 +143,7 @@ namespace Samples.Unity_Render_Streaming._3._1._0_exp._4.Example.Bidirectional
             }
 
             //
-            connectionId = "00000";
+            //connectionId = "90851";
             //
             
             //inputSender.OnStartedChannel += OnStartedChannel;
