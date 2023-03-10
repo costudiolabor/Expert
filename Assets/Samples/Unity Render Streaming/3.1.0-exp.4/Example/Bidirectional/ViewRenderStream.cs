@@ -60,7 +60,7 @@ using UnityEngine.UI;
         {
             setUpButton.interactable = false;
             hangUpButton.interactable = true;
-            panelMenu.SetActive(false);
+            //panelMenu.SetActive(false);
         }
 
         private void ClickHangUpButton()
