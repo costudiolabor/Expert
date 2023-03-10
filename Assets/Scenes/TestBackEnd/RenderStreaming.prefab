@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 170446996554248986}
   - component: {fileID: 6108039608991854138}
   - component: {fileID: 3164849263027483840}
-  - component: {fileID: 6073921774939639290}
+  - component: {fileID: 8929478341400629191}
   m_Layer: 0
   m_Name: RenderStreaming
   m_TagString: Untagged
@@ -88,7 +88,7 @@ MonoBehaviour:
   - {fileID: 245521928518153196}
   - {fileID: 959850333126299626}
   - {fileID: 245521928518153197}
-  - {fileID: 6073921774939639290}
+  - {fileID: 8929478341400629191}
 --- !u!114 &245521928518153185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,7 +356,7 @@ MonoBehaviour:
   inputReceiver: {fileID: 245521928518153197}
   _viewRenderStream: {fileID: 0}
   _connectionId: 00000
---- !u!114 &6073921774939639290
+--- !u!114 &8929478341400629191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
