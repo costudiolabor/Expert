@@ -49,6 +49,7 @@ public class StreamerModel : MonoBehaviour
 
     void Start()
     {
+        connectionId = "00000";
         if (renderStreaming.runOnAwake) return;
         renderStreaming.Run();
         inputSender.OnStartedChannel += OnStartedChannel;

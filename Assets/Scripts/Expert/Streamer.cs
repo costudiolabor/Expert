@@ -23,7 +23,7 @@ public class Streamer : ViewOperator<StreamerView>
       SubscribeEvent();
   }
   
-  private void CallUp() {
+  public void CallUp() {
       _streamerModel.CallUp();
   }
   
@@ -53,4 +53,9 @@ public class Streamer : ViewOperator<StreamerView>
       _streamerModel.SetConnectionIdEvent -= view.SetTextRemoteID;
 
   }
+  
+  
+  
+  
+  
 }
